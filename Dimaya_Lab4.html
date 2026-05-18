@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tic Tac Toe</title>
+    </head>
+
+    <style>
+        body {
+            text-align: center;
+            height: 100vh;
+            background: greenyellow;
+            font-family:'courier new', monospace;
+        }
+
+        h1 {
+            margin-bottom: 40px;
+            letter-spacing: 2px;
+            color: rgb(255, 0, 144);
+            text-shadow: 1px 1px 5px rgb(35, 150, 0);
+        }
+
+        .tictactoe {
+            display: inline-block;
+            /* margin: 0 auto; */
+            gap: 100px;
+        }
+
+        button {
+            font-family:'courier new', monospace;
+            width: 100px;
+            height: 100px;
+            font-size: 25px;
+            color: greenyellow;
+            border: 2px solid rgba(255, 144, 222, 0.584);
+            background: rgb(255, 0, 144);
+            cursor: pointer;
+            margin-bottom: 5px;
+            text-shadow: 1px 1px 5px rgb(109, 0, 80);
+            border-radius: 30%;
+            box-shadow: 0px 0px 10px rgba(109, 0, 80, 0.452);
+        }
+
+        /* button:hover {
+            background: rgb(197, 0, 111);
+        } */
+
+        .restart {
+            font-size: 20px;
+            font-weight: bold;
+            width: 250px;
+            height: 50px;
+            margin-top: 30px;
+            color: rgb(166, 255, 163);
+            background-color: rgb(199, 0, 113);
+            border-radius: 50%;
+        }
+
+        .b1:hover {
+            background: red;
+        }
+
+        .b2:hover {
+            background: rgb(21, 71, 158);
+        }
+
+        .b3:hover {
+            background: rgb(0, 255, 179);
+        }
+
+        .b4:hover {
+            background: rgb(255, 151, 5);
+        }
+
+        .b5:hover {
+            background: rgb(15, 118, 72);
+        }
+
+        .b6:hover {
+            background: rgb(255, 213, 0);
+        }
+
+        .b7:hover {
+            background: rgb(112, 14, 76);
+        }
+
+        .b8:hover {
+            background: rgb(74, 74, 89);
+        }
+
+        .b9:hover {
+            background: rgb(74, 178, 173);
+        }
+
+        .restart:hover {
+            background: rgba(0, 0, 0, 0.874);
+        }
+
+    </style>
+
+    <body>
+
+        <h1>TIC-TAC-TOE</h1>
+
+        <div class = "tictactoe">  
+            <button class="b1">X</button>
+            <button class="b2">O</button>
+            <button class="b3">O</button>
+            <br>
+            <button class="b4">X</button>
+            <button class="b5">O</button>
+            <button class="b6">X</button>
+            <br>
+            <button class="b7">O</button>
+            <button class="b8">X</button>
+            <button class="b9">X</button>
+        </div>
+        
+        <br>
+        <button class = restart>Reset Game</button>
+        
+    </body>
+</html>
+
+

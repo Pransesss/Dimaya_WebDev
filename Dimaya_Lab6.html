@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Lab 6 ni Dimaya</title>
+    </head>
+    <style>
+        form {
+            margin-bottom: 24px;
+            background: #c8d9cb;
+            padding: 16px;
+            display: flex;
+            gap: 12px;
+            border-radius: 7px;
+        }
+        
+        table {
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        th {
+            padding: 10px 14px;
+            font-size: 16;
+            background-color: rgb(53, 73, 46);
+            color: white;
+            margin-bottom: 50px;
+        }
+
+        td {
+            padding: 5px 14px;
+        }
+
+        input {
+            padding: 6px 30px;
+            font-size: 14px;
+            border-radius: 7px;
+            border: 2px solid rgba(43, 45, 42, 0.772);
+        }
+
+        button {
+            background-color: rgb(80, 108, 69);
+            padding: 7px 16px;
+            color: white;
+            border-radius: 7px;
+            font-weight: bold;
+            border-color: rgb(80, 108, 69);
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: rgba(33, 50, 28, 0.756)
+        }
+
+    </style>
+    
+    <body>
+
+        <form>
+            <input type="text" id="pname" name="pname" placeholder="Product Name">            
+            <input type="number" id="price" name="price" placeholder="Price">            
+            <input type="number" id="stock" name="stock" placeholder="Stock Quantity">      
+            
+            <button type="button" onclick="addProduct()">Add Product</button>
+        </form>
+
+
+        <table style="width: 100%">
+            <tr>
+                <th>ID</th>
+                <th>Item Name</th>
+                <th>Price</th>
+                <th>Stock</th>
+            </tr>
+            
+            <tbody id="body">
+            </tbody>
+        </table>
+
+        <script>
+            let inventory = [
+                { id: 1, name: "Wireless Mouse",  price: 25.00,      stock: 10 },
+                { id: 2, name: "Keyboard",        price: 45.00,      stock: 0 },
+                { id: 3, name: "Galax Monitor",   price: 50000.00,   stock: 20  },
+                { id: 4, name: "RTX 9090 1/1",    price: 1000000.00, stock: 1 },
+                { id: 5, name: "Gaming Speakers", price: 12345.00,   stock: 123 },
+            ];
+
+            let nextId = inventory.length + 1;
+
+            function renderTable() {
+                let tbody = document.getElementById("body");
+
+                tbody.innerHTML = "";   // clear
+
+                let rows = "";
+
+                for (let item of inventory) {
+                    let stockDisplay;
+                    if (item.stock === 0) {
+                        stockDisplay = "<span style='color: red;'><b>Out of Stock</b></span>";
+                    } else {
+                        stockDisplay = item.stock;
+                    }
+
+                    rows +=
+                    "<tr>" +
+                    "<td>" + item.id + "</td>" +
+                    "<td>" + item.name + "</td>" +
+                    "<td>" + "$" + item.price.toFixed(2) + "</td>" +
+                    "<td>" + stockDisplay + "</td>" +
+                    "</tr><tr><td colspan='4'><hr></td></tr>";
+                }
+
+                tbody.innerHTML = rows;
+            }
+
+            function addProduct() {
+                let name  = document.getElementById("pname").value;
+                let price = parseFloat(document.getElementById("price").value);
+                let stock = parseInt(document.getElementById("stock").value);
+
+                if (!name || isNaN(price) || isNaN(stock)) return;
+
+                inventory.push({ id: nextId++, name, price, stock });
+
+                renderTable();
+
+                document.getElementById("pname").value = "";
+                document.getElementById("price").value = "";
+                document.getElementById("stock").value = "";
+            }
+
+            renderTable();
+        </script>
+    </body>
+</html>
